@@ -1,15 +1,15 @@
+.body {
+    display: grid;
+    grid-template-columns: 40vh 80vh 40vh;
+    grid-template-rows: 1fr 2fr 2fr 1fr;
+    background-color: #D2D2D2;
+    opacity: 0.5;
+}
 
+header{
+    grid-column: 2/3;
+}
 
-@media screen and (min-width: 1024px){
-    
-    .body{
-        display: grid;
-        grid-template-columns: 40vh 80vh 40vh;
-        grid-template-rows: 1fr 2fr 2fr 1fr;
-    }
-    
-    
-    .header{
-        
-    }
+.Varukorg{
+    grid-column: 3/4;
 }
