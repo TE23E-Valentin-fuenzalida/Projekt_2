@@ -1,0 +1,15 @@
+
+
+@media screen and (min-width: 1024px){
+    
+    .body{
+        display: grid;
+        grid-template-columns: 40vh 80vh 40vh;
+        grid-template-rows: 1fr 2fr 2fr 1fr;
+    }
+    
+    
+    .header{
+        
+    }
+}
