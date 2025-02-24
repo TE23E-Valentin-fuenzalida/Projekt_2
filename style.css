@@ -78,3 +78,77 @@ footer{
 
     background-color: #8C8C8C;
 }
+
+main{
+    display: flex;
+    flex-direction: row;
+}
+
+.Eld{
+    display: flex;
+    flex-direction: column;
+
+    border: 2px solid black;
+
+    width: 151px;
+}
+
+.Övre{
+    display: flex;
+    flex-direction: row;
+    
+    padding-left: 30px;
+    margin-top: 90px;
+    margin-bottom: 10px;
+
+    width: 80px;
+    height: 20px;
+}
+
+
+#Kostnad{
+    background-color: #2A00FF;
+    color: #FFFFFF;
+    
+    width: 40px;
+    height: 20px;
+}
+#lager{
+    background-color: #FF0004;
+    color: #FFFFFF;
+    
+    width: 50px;
+    height: 20px;
+}
+
+.Undre{
+    display: flex;
+    flex-direction: row;
+
+    padding-left: 30px;
+
+    width: 80px;
+    height: 20px;
+}
+
+#Eld{
+    background-color: #000000;
+    color: #FFFFFF;
+
+    width: 30px;
+    height: 20px;
+
+    margin-right: 5px;
+}
+#BUY{
+    background-color: #00FF1E;
+    color: #000000;
+
+    border: none;
+
+    width: 35px;
+    height: 21px;
+    
+    margin-left: 5px;
+    margin-top: 16px;
+}
