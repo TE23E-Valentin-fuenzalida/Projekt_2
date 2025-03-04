@@ -88,51 +88,25 @@ main {
     grid-row: 2/5;
 }
 
-.Eld {
+.Container-för-Eld {
     display: flex;
     flex-direction: row;
 
+    flex-wrap: auto;
+
     width: 151px;
-    height: 150px;
+    height: 200px;
 
     border: 2px solid black;
 
     margin-left: 10px;
     margin-right: 10px;
-
 }
 
-.Flood {
-    display: flex;
-    flex-direction: row;
-
-    border: 2px solid black;
-
-    width: 151px;
-    height: 150px;
+#bild-på-Eld{
+    
 }
 
-.Röd {
-    display: flex;
-    flex-direction: row;
-
-    border: 2px solid black;
-
-    width: 151px;
-    height: 150px;
-
-    margin-right: 50px;
-}
-
-.Twin {
-    display: flex;
-    flex-direction: row;
-
-    border: 2px solid black;
-
-    width: 151px;
-    height: 150px;
-}
 
 .Container-1 {
     display: flex;
