@@ -82,18 +82,22 @@ footer {
 main {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 
     border: 2px solid black;
-
+    
     grid-row: 2/5;
 }
 
-.Container-för-Eld {
-    display: flex;
-    flex-direction: row;
-
-    flex-wrap: auto;
-
+.item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      "image   image"
+      "cost    name"
+      "amount  buy";
+  
     width: 151px;
     height: 200px;
 
@@ -103,71 +107,36 @@ main {
     margin-right: 10px;
 }
 
-#bild-på-Eld{
-    
-}
-
-
-.Container-1 {
-    display: flex;
-    flex-direction: column;
-
-    padding-top: 10px;
-    padding-left: 21px;
-
-    width: 80px;
-    height: 100px;
-}
-
-
-.Kostnad-för-produkter {
+.item__cost {
     background-color: #2A00FF;
     color: #FFFFFF;
-
-    width: 60px;
-    height: 20px;
+    
+    grid-area: cost;
 }
 
-.Lager-för-produkter {
+.item__amount {
     background-color: #FF0004;
     color: #FFFFFF;
-
-    width: 65px;
-    height: 20px;
+    
+    grid-area: amount;
 }
 
-.Container-2 {
-    display: flex;
-    flex-direction: column;
-
-    padding-top: 10px;
-    padding-right: 40px;
-
-    width: 80px;
-    height: 20px;
-}
-
-.Namn-för-produkter {
+.item__name {
     background-color: #000000;
     color: #FFFFFF;
 
-    width: 60px;
-    height: 20px;
-
-    margin-right: 5px;
+    grid-area: name;
 }
 
-.BUY-för-produkter {
+.item__buy-button {
     background-color: #00FF1E;
     color: #000000;
 
     border: none;
+    
+    grid-area: buy;
+}
 
-    width: 60px;
-    height: 40px;
-
-    margin-left: 5px;
-    margin-top: 16px;
-
-    padding-top: 3px;
+img{
+    width: 80%;
 }
