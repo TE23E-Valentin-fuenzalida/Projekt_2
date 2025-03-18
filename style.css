@@ -12,7 +12,6 @@ img {
 
 
     header {
-
         background-color: #FFFFFF;
     }
 
@@ -26,7 +25,9 @@ img {
         background-color: #000000;
     }
 
-    .Varukorg {}
+    .Varukorg {
+
+    }
 
     #Varukorg {
         display: inline-block;
@@ -34,6 +35,7 @@ img {
         border: 2px solid #000000;
         color: #FFFFFF;
         background-color: #000000;
+
     }
 
     nav {
@@ -76,7 +78,7 @@ img {
         grid-template-rows: 1fr 1fr 1fr;
         grid-template-areas:
             "image  cost"
-            "image  amount"
+            "reklam  amount"
             "name  buy";
 
         border: 2px solid black;
@@ -133,10 +135,19 @@ img {
         margin-top: 15px;
     }
 
+    #Reklam{
+        background-color: #FF0004;
+        grid-area: reklam;
+    }
+
     footer {
         background-color: #8C8C8C;
     }
 
+
+
+    #Main_bild{
+    }
 
     #Eld {}
 
