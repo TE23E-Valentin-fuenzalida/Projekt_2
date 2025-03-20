@@ -1,3 +1,4 @@
+
 var Varukorg = document.getElementById("Varukorgen");
 
 var btn = document.getElementById("Varukorg-btn");
@@ -12,8 +13,6 @@ span.onclick = function() {
     Varukorg.style.display = "none";
 }
 
-window.onclick = function(event) {
-    if (event.target == Varukorg) {
-        Varukorg.style.display = "none";
-    }
+function Läggatill(Title) {
+    let Eld = document
 }

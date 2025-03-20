@@ -135,6 +135,10 @@ img {
         margin-top: 15px;
     }
 
+    .Produkt_ta-bort{
+        display: none;
+    }
+
     #Reklam{
         background-color: #FF0004;
         grid-area: reklam;
@@ -314,6 +318,10 @@ img {
         height: 50px;
     }
 
+    .Produkt_ta-bort{
+        display: none;
+    }
+
     #Eld {}
 
     #Flood {}
@@ -352,7 +360,7 @@ img {
 
         width: 100vw;
 
-        grid-template-columns: 61vh 128vh 20vh;
+        grid-template-columns: 61vh 128vh 30vh;
         grid-template-rows: 1fr 2fr 2fr 2fr 1fr;
 
         background-color: #D2D2D2;
@@ -385,8 +393,7 @@ img {
         width: 100%; /* Full width */
         height: 100%; /* Full height */
         overflow: auto; /* Enable scroll if needed */
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        background-color: #FFFFFF; /* Fallback color */
     }
 
     .Varukorg-Innehåll{
@@ -394,29 +401,11 @@ img {
         background-color: #FFFFFF;
         margin: 15% auto;
         padding: 20px;
-        border: 1px solid #888;
         width: 80%;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
         animation-name: animatetop;
         animation-duration: 0.4s
     }
-
-    /* Modal Header */
-.modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-  }
-  
-  /* Modal Body */
-  .Varukorg-body {padding: 2px 16px;}
-  
-  /* Modal Footer */
-  .Varukorg-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-  }
 
     .close{
         color: #aaa;
@@ -534,6 +523,10 @@ img {
         border: none;
 
         grid-area: buy;
+    }
+
+    .Produkt_ta-bort{
+        display: none;
     }
 
 
