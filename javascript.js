@@ -1,4 +1,4 @@
-
+let nyckel = "produktNyckel";
 var Varukorg = document.getElementById("Varukorgen");
 var btn = document.getElementById("Varukorg-btn");
 var span = document.getElementsByClassName("close")[0];
@@ -42,7 +42,6 @@ function Läggatill(title, image, price) {
 
     let första_rad = document.createElement("div");
     let titel = document.createElement("p");
-    titel.id = "titel";
     let pris = document.createElement("p");
     pris.id = "pris";
 
@@ -61,10 +60,6 @@ function Läggatill(title, image, price) {
 
     product_info.appendChild(knapp);
     product.appendChild(product_info);
-
-    let summa = document.querySelector("#summa_div");
-
-
     let summaTot = document.querySelector("#summa_nr");
 
     pris_tot = parseInt(price) + parseInt(pris_tot);
@@ -75,9 +70,11 @@ function Läggatill(title, image, price) {
     console.log(title + price + image);
 
     let fält = [];
-    let json = window.localStorage.getItem(nyckel);
-    if (json) fält = JSON.parse(json);
-
+    let json = window.localStorage.getItem("nyckel");
+    if (json) {
+        fält = JSON.parse(json);   
+    }
+        
     let item = {
         title_J: title,
         price_J: price,
@@ -88,4 +85,17 @@ function Läggatill(title, image, price) {
     json = JSON.stringify(fält);
     window.localStorage.setItem(nyckel, json);
     
+}
+
+function laddat_sidan() {
+    let fält =[];
+    let json = window.localStorage.getItem("nyckel");
+    if (json) {
+        fält = JSON.parse(json);
+    }
+
+    for (let i= 0; i<fält.length; i++) {
+        let obj = fält[i];
+        
+    }
 }

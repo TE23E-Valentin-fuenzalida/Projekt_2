@@ -153,21 +153,37 @@ img {
     #Main_bild{
     }
 
-    #Eld {}
+    #Eld {
+        width: 200px;
+    }
 
-    #Flood {}
+    #Flood {
+        width: 130px;
+    }
 
-    #Röd {}
+    #Röd {
+        width: 130px;
+    }
 
-    #Twin {}
+    #Twin {
+        width: 170px;
+    }
 
-    #Stråle {}
+    #Stråle {
+        width: 130px;
+    }
 
-    #Fågel {}
+    #Fågel {
+        width: 170px;
+    }
 
-    #Strålar {}
+    #Strålar {
+        width: 130px;
+    }
 
-    #Twin_2 {}
+    #Twin_2 {
+        width: 140px;
+    }
 
 
 }
@@ -186,7 +202,6 @@ img {
     }
 
     header {
-
         grid-column: 1/3;
         grid-row: 1/2;
 
@@ -203,22 +218,80 @@ img {
         background-color: #000000;
     }
 
-    .Varukorg {
+    #Varukorgen {
         grid-column: 2/3;
         grid-row: 1/5;
+
+        position: fixed;  /* Gör att varukorgen ligger över allt annat */
+        top: 20;
+        left: 0;
+        width: 100vw; /* Full bredd */
+        height: 100vh; /* Full höjd */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000; /* Håller varukorgen över allt annat */
+        display: none; /* Dölj varukorgen som standard */
+    }
+    
+    .Varukorg-innehåll {
+        background-color: white;
+        padding: 20px;
+        width: 200px; /* Eller vad du vill */
+        max-height: 80vh; /* Gör den max 80% av skärmen */
+        overflow-y: auto; /* Gör så att den kan scrolla om den blir för stor */
+        border-radius: 10px;
+    }
+    
+    
+    #bild{
+        width: 60px;
+        height: 70px;
     }
 
-    #Varukorg {
-        display: inline-block;
+    #pris{
+        padding-left: 20px;
+    }
 
+    #summa_div{
+        padding-top: 580px;
+    }
+
+    #summa_nr{
+        background-color: #000000;
+        color: #FFFFFF;
+    }
+
+    #kassan{
+        background-color: #000000;
+        color: #FFFFFF;
+    }
+
+
+    .close{
+        color: #aaa;
+        float: right;
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus{
+        color: #000000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    #Varukorg-btn{
+        border: none;
+
+        grid-column: 2/3;
         grid-row: 1/2;
 
-        border: 2px solid #000000;
         color: #FFFFFF;
         background-color: #000000;
-
-        margin-left: 200px;
     }
+
 
     nav {
         display: flex;
@@ -322,21 +395,37 @@ img {
         display: none;
     }
 
-    #Eld {}
+    #Eld {
+        width: 100px;
+    }
 
-    #Flood {}
+    #Flood {
+        width: 69px;
+    }
 
-    #Röd {}
+    #Röd {
+        width: 60px;
+    }
 
-    #Twin {}
+    #Twin {
+        width: 90px;
+    }
 
-    #Stråle {}
+    #Stråle {
+        width: 58px;
+    }
 
-    #Fågel {}
+    #Fågel {
+        width: 100px;
+    }
 
-    #Strålar {}
+    #Strålar {
+        width: 55px;
+    }
 
-    #Twin_2 {}
+    #Twin_2 {
+        width: 65px;
+    }
 
     footer {
         grid-row: 4/5;
@@ -417,10 +506,6 @@ img {
     #bild{
         width: 60px;
         height: 70px;
-    }
-
-    #title{
-        
     }
 
     #pris{
@@ -573,21 +658,37 @@ img {
 
 
 
-    #Eld {}
+    #Eld {
+        width: 90px;
+    }
 
-    #Flood {}
+    #Flood {
+        width: 70px;
+    }
 
-    #Röd {}
+    #Röd {
+        width: 60px;
+    }
 
-    #Twin {}
+    #Twin {
+        width: 90px;
+    }
 
-    #Stråle {}
+    #Stråle {
+        width: 58px;
+    }
 
-    #Fågel {}
+    #Fågel {
+        width: 90px;
+    }
 
-    #Strålar {}
+    #Strålar {
+        width: 50px;
+    }
 
-    #Twin_2 {}
+    #Twin_2 {
+        width: 65px;
+    }
 
 
 
