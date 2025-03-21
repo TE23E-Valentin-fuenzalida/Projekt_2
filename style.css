@@ -383,9 +383,9 @@ img {
         background-color: #000000;
     }
 
-    .Varukorg {
+    #Varukorgen {
         grid-column: 3/4;
-        grid-row: 1/5;
+        grid-row: 1/6;
         display: none;
         z-index: 1; /* Sit on top */
         left: 0;
@@ -396,21 +396,58 @@ img {
         background-color: #FFFFFF; /* Fallback color */
     }
 
+
+
+    #VarukorgVara_info{
+        display: flex;
+        flex-direction: row;
+    }
+
     .Varukorg-Innehåll{
+        display: flex;
+        flex-direction: column;
+
         position: relative;
         background-color: #FFFFFF;
         margin: 15% auto;
         padding: 20px;
         width: 80%;
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-        animation-name: animatetop;
-        animation-duration: 0.4s
     }
+
+    #bild{
+        width: 60px;
+        height: 70px;
+    }
+
+    #title{
+        
+    }
+
+    #pris{
+        padding-left: 20px;
+    }
+
+    #summa_div{
+        padding-top: 580px;
+    }
+
+    #summa_nr{
+        background-color: #000000;
+        color: #FFFFFF;
+    }
+
+    #kassan{
+        background-color: #000000;
+        color: #FFFFFF;
+    }
+
+
+
 
     .close{
         color: #aaa;
         float: right;
-        font-size: 20px;
+        font-size: 40px;
         font-weight: bold;
     }
 
@@ -429,6 +466,10 @@ img {
 
         color: #FFFFFF;
         background-color: #000000;
+    }
+
+    ul{
+        gap: 50px;
     }
 
     nav {
@@ -463,6 +504,7 @@ img {
 
         background-color: #FF4343;
     }
+
 
 
     main {

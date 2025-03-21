@@ -1,60 +1,91 @@
 
 var Varukorg = document.getElementById("Varukorgen");
-
 var btn = document.getElementById("Varukorg-btn");
-
 var span = document.getElementsByClassName("close")[0];
 
 btn.onclick = function () {
     Varukorg.style.display = "block";
+    btn.style.display = "none";
 }
 
 span.onclick = function () {
     Varukorg.style.display = "none";
+    btn.style.display = "block";
 }
+
 
 const ul = document.querySelector("ul");
 const MAX=5;
-let count=0;
+let counter=0;
+let pris_tot = 0;
 
-function Läggatill(title, photo, cost, remove) {
-
-    Varukorg.style,display = "block";
-
-
-    if (count<MAX) {
-        let li = document.createElement("li");
-        li.textContent= title + photo + cost + remove;
-        ul.appendChild(li);
-        count++;
-    }
-
-    let fält =[];
-    let json = window.localStorage.getItem("min_nyckel");
-    if (json) {
-        fält = JSON.parse(json);
-    }
-
-    let obj = {
-        title: title,
-        photo: photo,
-        cost: cost,
-        remove: remove
-    }
-    fält.push(obj);
-    json = JSON.stringify(fält);
-    window.localStorage.setItem("min_nyckel", json)
+function removeFromVarukorg(product_info, price) {
+    product_info.remove(); // Remove the product from the DOM
+    console.log(`Removed product with price: ${price} kr`);
 }
 
-function laddat_sidan() {
+function Läggatill(title, image, price) {
+    
+    btn.style.display = "none";
+    Varukorg.style.display = "block";
+
+    let product = document.querySelector("#Produkt");
+    product.classList.add("VarukorgVara");
+    
+    let product_info = document.createElement("div");
+    product_info.classList.add("VarukorgVara_info");
+
+    let image_pro = document.createElement("img");
+    image_pro.src = image;
+    image_pro.id = "bild";
+    product_info.appendChild(image_pro);
+
+    let första_rad = document.createElement("div");
+    let titel = document.createElement("p");
+    titel.id = "titel";
+    let pris = document.createElement("p");
+    pris.id = "pris";
+
+    titel.textContent = title;
+    pris.textContent = price + " kr";
+    första_rad.appendChild(titel);
+    första_rad.appendChild(pris);
+    product_info.appendChild(första_rad);
+
+    
+    let knapp = document.createElement("button");
+    knapp.textContent = "Ta bort";
+    knapp.addEventListener("click", function () { 
+        removeFromVarukorg(product_info, price);
+    });
+
+    product_info.appendChild(knapp);
+    product.appendChild(product_info);
+
+    let summa = document.querySelector("#summa_div");
+
+
+    let summaTot = document.querySelector("#summa_nr");
+
+    pris_tot = parseInt(price) + parseInt(pris_tot);
+    console.log(price + " | " + parseInt(pris_tot));
+
+    summaTot.textContent = "Total summa: " + pris_tot + "kr";
+
+    console.log(title + price + image);
+
     let fält = [];
-    let json = window.localStorage.getItem("min_nyckel");
-    if (json) {
-        fält = JSON.parse(json);
+    let json = window.localStorage.getItem(nyckel);
+    if (json) fält = JSON.parse(json);
+
+    let item = {
+        title_J: title,
+        price_J: price,
+        image_J: image,
     }
 
-    for (let i=0; i<array.length; i++) {
-        
-        
-    }
+    fält.push(item);
+    json = JSON.stringify(fält);
+    window.localStorage.setItem(nyckel, json);
+    
 }
