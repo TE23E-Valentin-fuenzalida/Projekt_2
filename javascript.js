@@ -20,18 +20,26 @@ let counter=0;
 let pris_tot = 0;
 
 function removeFromVarukorg(product_info, price) {
-    product_info.remove(); // Remove the product from the DOM
-    console.log(`Removed product with price: ${price} kr`);
+    product_info.remove();
+    
+    let fält = JSON.parse(localStorage.getItem(nyckel)) || [];
+    
+    // Hitta produkten att ta bort
+    fält = fält.filter(item => item.price !== price);
+    
+    localStorage.setItem(nyckel, JSON.stringify(fält));
+
+    // Uppdatera totalpriset
+    pris_tot -= parseInt(price);
+    document.querySelector("#summa_nr").textContent = "Total summa: " + pris_tot + " kr";
 }
 
 function Läggatill(title, image, price) {
-    
     btn.style.display = "none";
     Varukorg.style.display = "block";
 
     let product = document.querySelector("#Produkt");
-    product.classList.add("VarukorgVara");
-    
+
     let product_info = document.createElement("div");
     product_info.classList.add("VarukorgVara_info");
 
@@ -51,7 +59,6 @@ function Läggatill(title, image, price) {
     första_rad.appendChild(pris);
     product_info.appendChild(första_rad);
 
-    
     let knapp = document.createElement("button");
     knapp.textContent = "Ta bort";
     knapp.addEventListener("click", function () { 
@@ -60,42 +67,142 @@ function Läggatill(title, image, price) {
 
     product_info.appendChild(knapp);
     product.appendChild(product_info);
+    
     let summaTot = document.querySelector("#summa_nr");
-
     pris_tot = parseInt(price) + parseInt(pris_tot);
-    console.log(price + " | " + parseInt(pris_tot));
+    summaTot.textContent = "Total summa: " + pris_tot + " kr";
 
-    summaTot.textContent = "Total summa: " + pris_tot + "kr";
+    // Spara till localStorage
+    let fält = JSON.parse(localStorage.getItem(nyckel)) || [];
 
-    console.log(title + price + image);
-
-    let fält = [];
-    let json = window.localStorage.getItem("nyckel");
-    if (json) {
-        fält = JSON.parse(json);   
-    }
-        
     let item = {
-        title_J: title,
-        price_J: price,
-        image_J: image,
-    }
+        title: title,
+        price: price,
+        image: image
+    };
 
     fält.push(item);
-    json = JSON.stringify(fält);
-    window.localStorage.setItem(nyckel, json);
-    
+    localStorage.setItem(nyckel, JSON.stringify(fält));
 }
 
-function laddat_sidan() {
-    let fält =[];
-    let json = window.localStorage.getItem("nyckel");
-    if (json) {
-        fält = JSON.parse(json);
-    }
 
-    for (let i= 0; i<fält.length; i++) {
-        let obj = fält[i];
-        
-    }
+function ladda_varukorg() {
+    let fält = JSON.parse(localStorage.getItem(nyckel)) || [];
+
+    let product = document.querySelector("#Produkt");
+    let summaTot = document.querySelector("#summa_nr");
+    pris_tot = 0; // Nollställ totalsumman
+
+    fält.forEach(item => {
+        let product_info = document.createElement("div");
+        product_info.classList.add("VarukorgVara_info");
+
+        let image_pro = document.createElement("img");
+        image_pro.src = item.image;
+        image_pro.id = "bild";
+        product_info.appendChild(image_pro);
+
+        let första_rad = document.createElement("div");
+        let titel = document.createElement("p");
+        let pris = document.createElement("p");
+        pris.id = "pris";
+
+        titel.textContent = item.title;
+        pris.textContent = item.price + " kr";
+        första_rad.appendChild(titel);
+        första_rad.appendChild(pris);
+        product_info.appendChild(första_rad);
+
+        let knapp = document.createElement("button");
+        knapp.textContent = "Ta bort";
+        knapp.addEventListener("click", function () { 
+            removeFromVarukorg(product_info, item.price);
+        });
+
+        product_info.appendChild(knapp);
+        product.appendChild(product_info);
+
+        pris_tot += parseInt(item.price);
+    });
+
+    summaTot.textContent = "Total summa: " + pris_tot + " kr";
 }
+
+window.onload = function () {
+    ladda_varukorg();
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+// Hold all your cart items
+let cartItems = loadCartFromLocalStorage();
+updateCartRepresentation();
+
+// Loads the cart from local storage. If nothing
+// was set, it sets it to an empty array.
+function loadCartFromLocalStorage() {
+  const items = localStorage.getItem('cart-Items');
+  return items ? JSON.parse(items) : [];
+}
+
+function addItemToCart(item) {
+  // Check if there already is an item with the given id in cart
+  // by iterating through the global cart items and comparing it
+  // with the items id that has been passed in.
+  const targetCartItem = cartItems.find(cartItem => cartItem.id === item.id);
+  
+  // That item is in cart so we just increase the amount
+  if (targetCartItem) {
+    targetCartItem.amount += 1;
+  } else {
+    // Else add the item to the cart items
+    cartItems.push(item);
+  }
+
+  // Update state in localStorage
+  localStorage.setItem('cart-items', JSON.stringify(cartItems)
+}
+
+// 2 ways to do this, you can just opt to update the element that changed
+// or the easier although messier way which I go for here is removing everything
+// and rerendering it again.
+function updateCartRepresentation() {
+  // Get the products element
+  const cartProducts = document.getElementById('#cartProducts');
+  // Empty that sucker.
+  cartProducts.innerHTML = '';
+
+  // Loop over each item in the cart and generate the DOM elements appropriately.
+  cartItems.forEach((item) => {
+    // Create a root for the product element
+    const productElement = document.createElement('div');
+    cartProducts.appendChild(productElement);
+
+    // Now create the other DOM elements for your product
+    // like in your example, I'll leave that up to you.
+  });
+}
+ */
