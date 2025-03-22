@@ -12,7 +12,12 @@ img {
 
 
     header {
-        background-color: #FFFFFF;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #FFFFFF; /* Lägg till en bakgrund så att den inte blir genomskinlig */
+        z-index: 1001; /* Högre än `#Varukorgen` så att den alltid ligger ovanpå */
     }
 
     #Rubrik {
@@ -25,26 +30,119 @@ img {
         background-color: #000000;
     }
 
-    .Varukorg {
+    #Varukorgen {
+        display: none;
+        display: inline-block;
+
+        
+        color: #000000;
+        background-color:#FFFFFF;
+
+        width: 100vw;
+        height: 100%;
+
+        z-index: 1000;
+
+        position: fixed; /* Cover the entire viewport */
+        top: 80px;
+        left: 0;
 
     }
 
-    #Varukorg {
-        display: inline-block;
+    #summa_div{
+        padding-top: 50px;
+    }
 
-        border: 2px solid #000000;
-        color: #FFFFFF;
+    #summa_nr{
         background-color: #000000;
+        color: #FFFFFF;
+    }
 
+    #kassan{
+        background-color: #000000;
+        color: #FFFFFF;
+    }
+
+    #Varukorg-btn{
+        position: fixed; /* Gör att den alltid är synlig */
+        top: 80px; /* Placera den under headern (justera beroende på header-höjd) */
+        right: 20px; /* Placera den på höger sida */
+        z-index: 1002; /* Se till att den ligger ovanför header och varukorgen */
+        background-color: black;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .close{
+        color: #aaa;
+        float: right;
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus{
+        color: #000000;
+        text-decoration: none;
+        cursor: pointer;
     }
 
     nav {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
 
+        position: fixed; /* Fixerat under headern */
+        top: 94px; /* Justera beroende på headerns höjd */
+        left: 0;
+        width: 100%;
+        height: 50vh; /* Täcker halva skärmen */
+        
+        display: flex;
+        flex-direction: column; /* Ställer elementen vertikalt */
+        justify-content: center; /* Centrerar innehållet vertikalt */
+        align-items: center; /* Centrerar innehållet horisontellt */
+        
         background-color: #5AFF5D;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        
+        display: none; /* Gömmer från början */
+        z-index: 1000;
+        padding: 20px 0; /* Ser till att innehållet inte fastnar högst upp */
+    }
+
+    nav a {
+        font-size: 20px;
+        padding: 5px 10px; /* Mindre padding för att minska klickytan */
+        text-decoration: none;
+        color: black;
+        
+        width: fit-content; /* Gör att länken bara tar upp så mycket plats som texten kräver */
+        display: flex; /* Behåller vertikal radning */
+        justify-content: center;
+        align-items: center;
+        
+        margin: 30px 0; /* Lägger till mellanrum mellan länkarna */
+    }
+
+    #Nav{
+        position: fixed; /* Fixera den på skärmen */
+        top: 90px; /* Placera den direkt under headern (justera efter headerns höjd) */
+        left: 20px; /* Placera den en bit från vänsterkanten */
+        width: 50px;
+        height: 60px;
+        background-color: black; /* Gör den synlig */
+        color: white;
+        z-index: 1000; /* Högre än produkterna men lägre än headern */
+        font-size: 23px;
+    }
+
+    .close2{
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 2000;
     }
 
     a {
@@ -66,6 +164,8 @@ img {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
+
+        margin-top: 140px;
 
         border: 2px solid black;
     }
@@ -148,9 +248,13 @@ img {
         background-color: #8C8C8C;
     }
 
+    #Bilder{
+        width: 150px;
+    }
 
 
     #Main_bild{
+        width: 80px;
     }
 
     #Eld {
@@ -282,6 +386,10 @@ img {
         cursor: pointer;
     }
 
+    .close2{
+        display: none;
+    }
+
     #Varukorg-btn{
         border: none;
 
@@ -291,6 +399,8 @@ img {
         color: #FFFFFF;
         background-color: #000000;
     }
+
+
 
 
     nav {
@@ -541,6 +651,10 @@ img {
         color: #000000;
         text-decoration: none;
         cursor: pointer;
+    }
+
+    .close2{
+        display: none;
     }
 
     #Varukorg-btn{

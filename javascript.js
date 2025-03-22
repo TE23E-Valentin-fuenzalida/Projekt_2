@@ -2,15 +2,33 @@ let nyckel = "produktNyckel";
 var Varukorg = document.getElementById("Varukorgen");
 var btn = document.getElementById("Varukorg-btn");
 var span = document.getElementsByClassName("close")[0];
+var btnNav = document.getElementById("Nav");
+var Nav = document.getElementById("NAV");
+var span2 = document.getElementsByClassName("close2")[0];;
+
+btnNav.onclick = function () {
+    Nav.style.display = "block";
+    btnNav.style.display = "none";
+    btn.style.display = "none";
+}
+
+span2.onclick = function () {
+    Nav.style.display = "none";
+    btnNav.style.display = "block";
+    btn.style.display = "block";
+}
+
 
 btn.onclick = function () {
     Varukorg.style.display = "block";
     btn.style.display = "none";
+    btnNav.style.display = "none";
 }
 
 span.onclick = function () {
     Varukorg.style.display = "none";
     btn.style.display = "block";
+    btnNav.style.display = "block";
 }
 
 
@@ -37,6 +55,7 @@ function removeFromVarukorg(product_info, price) {
 function Läggatill(title, image, price) {
     btn.style.display = "none";
     Varukorg.style.display = "block";
+    btnNav.style.display = "none";
 
     let product = document.querySelector("#Produkt");
 
@@ -45,7 +64,7 @@ function Läggatill(title, image, price) {
 
     let image_pro = document.createElement("img");
     image_pro.src = image;
-    image_pro.id = "bild";
+    image_pro.id = "Bilder";
     product_info.appendChild(image_pro);
 
     let första_rad = document.createElement("div");
@@ -99,7 +118,7 @@ function ladda_varukorg() {
 
         let image_pro = document.createElement("img");
         image_pro.src = item.image;
-        image_pro.id = "bild";
+        image_pro.id = "Bilder";
         product_info.appendChild(image_pro);
 
         let första_rad = document.createElement("div");
@@ -130,79 +149,5 @@ function ladda_varukorg() {
 
 window.onload = function () {
     ladda_varukorg();
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-// Hold all your cart items
-let cartItems = loadCartFromLocalStorage();
-updateCartRepresentation();
-
-// Loads the cart from local storage. If nothing
-// was set, it sets it to an empty array.
-function loadCartFromLocalStorage() {
-  const items = localStorage.getItem('cart-Items');
-  return items ? JSON.parse(items) : [];
+    Varukorg.style.display = "none";
 }
-
-function addItemToCart(item) {
-  // Check if there already is an item with the given id in cart
-  // by iterating through the global cart items and comparing it
-  // with the items id that has been passed in.
-  const targetCartItem = cartItems.find(cartItem => cartItem.id === item.id);
-  
-  // That item is in cart so we just increase the amount
-  if (targetCartItem) {
-    targetCartItem.amount += 1;
-  } else {
-    // Else add the item to the cart items
-    cartItems.push(item);
-  }
-
-  // Update state in localStorage
-  localStorage.setItem('cart-items', JSON.stringify(cartItems)
-}
-
-// 2 ways to do this, you can just opt to update the element that changed
-// or the easier although messier way which I go for here is removing everything
-// and rerendering it again.
-function updateCartRepresentation() {
-  // Get the products element
-  const cartProducts = document.getElementById('#cartProducts');
-  // Empty that sucker.
-  cartProducts.innerHTML = '';
-
-  // Loop over each item in the cart and generate the DOM elements appropriately.
-  cartItems.forEach((item) => {
-    // Create a root for the product element
-    const productElement = document.createElement('div');
-    cartProducts.appendChild(productElement);
-
-    // Now create the other DOM elements for your product
-    // like in your example, I'll leave that up to you.
-  });
-}
- */
