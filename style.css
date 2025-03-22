@@ -166,8 +166,6 @@ img {
         flex-wrap: wrap;
 
         margin-top: 140px;
-
-        border: 2px solid black;
     }
 
 
@@ -180,8 +178,6 @@ img {
             "image  cost"
             "reklam  amount"
             "name  buy";
-
-        border: 2px solid black;
 
         margin-left: 10px;
         margin-right: 10px;
